@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- METHOD 1: Instant JS redirect (fastest) -->
+    <script>
+        window.location.replace("https://alc-moon7.github.io/AstrionFLix/");
+    </script>
+    
+    <!-- METHOD 2: Meta refresh (immediate) -->
+    <meta http-equiv="refresh" content="0;url=https://alc-moon7.github.io/AstrionFLix/">
+    
+    <!-- METHOD 3: Canonical link -->
+    <link rel="canonical" href="https://alc-moon7.github.io/AstrionFLix/">
+    
+    <title>Redirecting to AstrioNflix...</title>
+</head>
+<body>
+    <!-- METHOD 4: Manual fallback -->
+    <noscript>
+        <h1>Redirecting to AstrioNflix</h1>
+        <p>If you're not redirected automatically:</p>
+        <a href="https://alc-moon7.github.io/AstrionFLix/" style="
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0066ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        ">Click to Continue</a>
+    </noscript>
+    
+    <!-- METHOD 5: Final JS fallback -->
+    <script>
+        setTimeout(function(){
+            if(window.location.href.indexOf("AstrionFLix") === -1) {
+                window.location.href = "https://alc-moon7.github.io/AstrionFLix/";
+            }
+        }, 50); // 50ms fallback
+    </script>
+</body>
+</html>
