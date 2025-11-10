@@ -44,8 +44,10 @@
                 <ul id="navMenu">
                     <li><a href="#home" class="nav-active">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#journey">Journey</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -73,6 +75,12 @@
     <main>
         <!-- Home Section -->
         <section id="home">
+            <div class="hero-canvas" aria-hidden="true">
+                <span class="hero-orb hero-orb-one" data-parallax="0.18"></span>
+                <span class="hero-orb hero-orb-two" data-parallax="0.12"></span>
+                <span class="hero-orb hero-orb-three" data-parallax="0.08"></span>
+                <span class="hero-ring" data-parallax="0.05"></span>
+            </div>
             <div class="hero-content">
                 <h1 class="hero-title">Exploring the world of technology with Muntakim Ahmed</h1>
                 <h2 class="hero-subtitle">APP / WEB Developer</h2>
@@ -80,6 +88,24 @@
                 <div class="cta-buttons">
                     <a href="#projects" class="btn">View My Work</a>
                     <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-value" data-target="32">0</span>
+                        <span class="stat-label">Products shipped</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" data-target="12">0</span>
+                        <span class="stat-label">Hackathons</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" data-target="18">0</span>
+                        <span class="stat-label">Happy partners</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" data-target="140">0</span>
+                        <span class="stat-label">Content drops</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -157,6 +183,62 @@
                 </div>
                 
                 <a href="#" class="btn">Download CV</a>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section id="journey" class="section-hidden">
+            <h2 class="section-title">Mission Log</h2>
+            <p class="section-subtitle">A snapshot of the crews, codebases, and experiments that shaped my craft.</p>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-meta">
+                        <span class="timeline-year">2025 — Present</span>
+                        <span class="timeline-role">Lead Product Engineer · AstroLab</span>
+                    </div>
+                    <p>Guiding a remote pod of frontend and Flutter devs to deliver highly animated mission dashboards for space start-ups.</p>
+                    <ul class="timeline-highlights">
+                        <li>Cut render times by 43% with streaming architecture refactor.</li>
+                        <li>Built a UI system powering 12 product teams with a single design language.</li>
+                    </ul>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-meta">
+                        <span class="timeline-year">2023 — 2024</span>
+                        <span class="timeline-role">Product Engineer · Cosmos Studios</span>
+                    </div>
+                    <p>Prototyped immersive education apps that blend AR lessons with responsive PWAs and offline-first sync.</p>
+                    <ul class="timeline-highlights">
+                        <li>Decreased drop-offs by 27% by shipping adaptive onboarding journeys.</li>
+                        <li>Owned the telemetry stack that surfaced user delight metrics in real time.</li>
+                    </ul>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-meta">
+                        <span class="timeline-year">2021 — 2023</span>
+                        <span class="timeline-role">Freelance Creator</span>
+                    </div>
+                    <p>Partnered with agencies and solo founders to convert napkin sketches into polished mobile and web experiences.</p>
+                    <ul class="timeline-highlights">
+                        <li>Delivered 18 client launches with 100% on-time deployment.</li>
+                        <li>Embedded analytics + CI/CD playbooks for every hand-off.</li>
+                    </ul>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-meta">
+                        <span class="timeline-year">2019 — 2021</span>
+                        <span class="timeline-role">Community Builder</span>
+                    </div>
+                    <p>Hosted local dev meetups, mentored junior coders, and curated open-source starter packs in Bengali.</p>
+                    <ul class="timeline-highlights">
+                        <li>Scaled the community from 12 to 380 members.</li>
+                        <li>Raised scholarships for 25 aspiring student engineers.</li>
+                    </ul>
+                </article>
             </div>
         </section>
 
@@ -277,8 +359,15 @@
         <!-- Projects Section -->
         <section id="projects" class="section-hidden">
             <h2 class="section-title">Featured Projects</h2>
+            <div class="section-subtitle project-subtitle">Filter the hangar to see the type of build you care about.</div>
+            <div class="project-filters" role="tablist">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="ux">UI / Research</button>
+            </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-category="mobile">
                     <div class="project-image">
                         <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                             <rect width="400" height="200" fill="#5a67d8"/>
@@ -302,7 +391,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" data-category="web">
                     <div class="project-image">
                         <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                             <rect width="400" height="200" fill="#0f172a"/>
@@ -327,7 +416,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card">
+                <div class="project-card" data-category="web">
                     <div class="project-image">
                         <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
                             <rect width="400" height="200" fill="#1e293b"/>
@@ -352,6 +441,85 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-card" data-category="ux">
+                    <div class="project-image">
+                        <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="400" height="200" fill="#0b1120"/>
+                            <path d="M60 120C60 98.9086 77.9086 81 99 81H301C322.091 81 340 98.9086 340 120V120C340 141.091 322.091 159 301 159H99C77.9086 159 60 141.091 60 120V120Z" fill="#5a67d8"/>
+                            <circle cx="120" cy="120" r="26" fill="#a5b4fc"/>
+                            <rect x="190" y="103" width="140" height="34" rx="10" fill="#c4b5fd"/>
+                            <text x="200" y="60" font-family="Arial" font-size="18" fill="white">Mission Research Hub</text>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Mission Research Hub</h3>
+                        <p class="project-description">A research ops cockpit where PMs cluster interviews, vote on experiments, and auto-sync next steps to Notion.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Supabase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Case Study</a>
+                            <a href="#" class="btn btn-outline">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section-hidden">
+            <h2 class="section-title">Crew Feedback</h2>
+            <p class="section-subtitle">Snapshots from the product partners who trusted me with their zero-to-one launches.</p>
+            <div class="testimonials-wrapper">
+                <button class="testimonial-nav" id="testimonialPrev" aria-label="Previous testimonial">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="testimonial-track">
+                    <article class="testimonial-card active" data-index="0">
+                        <p class="testimonial-quote">“Moon rebuilt our onboarding flow in two weeks. Activation jumped 38% and investors were floored by the polish.”</p>
+                        <div class="testimonial-author">
+                            <div>
+                                <h4>Neha Rahman</h4>
+                                <span>Founder · LumenPay</span>
+                            </div>
+                            <span class="testimonial-meta">Fintech · Toronto</span>
+                        </div>
+                    </article>
+                    <article class="testimonial-card" data-index="1">
+                        <p class="testimonial-quote">“The design system + Flutter kit he delivered keeps our mobile + web parity in sync. Shipping velocity doubled.”</p>
+                        <div class="testimonial-author">
+                            <div>
+                                <h4>Kamrul Hasan</h4>
+                                <span>Product Lead · Orbital</span>
+                            </div>
+                            <span class="testimonial-meta">SpaceOps · Singapore</span>
+                        </div>
+                    </article>
+                    <article class="testimonial-card" data-index="2">
+                        <p class="testimonial-quote">“From research to prototype tests, he translated fuzzy user stories into a coherent roadmap and spotless UI.”</p>
+                        <div class="testimonial-author">
+                            <div>
+                                <h4>Sadia Chowdhury</h4>
+                                <span>Design Director · Northwind Studio</span>
+                            </div>
+                            <span class="testimonial-meta">Agency · Dhaka</span>
+                        </div>
+                    </article>
+                </div>
+                <button class="testimonial-nav" id="testimonialNext" aria-label="Next testimonial">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="testimonial-dots">
+                <button class="testimonial-dot active" data-index="0" aria-label="Show testimonial 1"></button>
+                <button class="testimonial-dot" data-index="1" aria-label="Show testimonial 2"></button>
+                <button class="testimonial-dot" data-index="2" aria-label="Show testimonial 3"></button>
             </div>
         </section>
 
@@ -586,6 +754,43 @@
             skillObserver.observe(bar);
         });
 
+        // Hero Stat Counters
+        const heroStats = document.querySelector('.hero-stats');
+        const statValues = document.querySelectorAll('.stat-value');
+        
+        if (heroStats && statValues.length) {
+            const statsObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statValues.forEach(counter => animateCounter(counter));
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.4 });
+            
+            statsObserver.observe(heroStats);
+        }
+        
+        function animateCounter(counter) {
+            const target = parseInt(counter.getAttribute('data-target'), 10) || 0;
+            const duration = 1500;
+            const startTime = performance.now();
+            
+            const step = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                counter.textContent = Math.floor(progress * target);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            
+            requestAnimationFrame(step);
+        }
+
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -617,6 +822,81 @@
                     document.querySelector(`nav a[href="#${id}"]`).classList.remove('nav-active');
                 }
             });
+        });
+
+        // Project Filters
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        if (filterButtons.length && projectCards.length) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (button.classList.contains('active')) return;
+                    
+                    const filterValue = button.dataset.filter;
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    projectCards.forEach(card => {
+                        const category = card.dataset.category || 'all';
+                        const shouldShow = filterValue === 'all' || category === filterValue;
+                        
+                        if (shouldShow) {
+                            card.style.removeProperty('display');
+                            requestAnimationFrame(() => card.classList.remove('hide'));
+                        } else {
+                            card.classList.add('hide');
+                            setTimeout(() => {
+                                if (card.classList.contains('hide')) {
+                                    card.style.display = 'none';
+                                }
+                            }, 220);
+                        }
+                    });
+                });
+            });
+        }
+
+        // Parallax Layers on pointer move
+        const parallaxItems = document.querySelectorAll('[data-parallax]');
+        if (parallaxItems.length) {
+            window.addEventListener('pointermove', (event) => {
+                const xRatio = (event.clientX / window.innerWidth) - 0.5;
+                const yRatio = (event.clientY / window.innerHeight) - 0.5;
+                
+                parallaxItems.forEach(item => {
+                    const factor = parseFloat(item.dataset.parallax) || 0.05;
+                    const translateX = -(xRatio * factor * 80);
+                    const translateY = -(yRatio * factor * 60);
+                    
+                    item.style.setProperty('--parallaxX', `${translateX}px`);
+                    item.style.setProperty('--parallaxY', `${translateY}px`);
+                });
+            });
+        }
+
+        // Card Tilt Interaction
+        const tiltElements = document.querySelectorAll('.project-card, .skill-category');
+        
+        function applyTilt(event) {
+            const rect = this.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const rotateY = ((x / rect.width) - 0.5) * 12;
+            const rotateX = ((0.5 - y / rect.height)) * 12;
+            
+            this.style.setProperty('--tiltX', `${rotateX.toFixed(2)}deg`);
+            this.style.setProperty('--tiltY', `${rotateY.toFixed(2)}deg`);
+        }
+        
+        function resetTilt() {
+            this.style.setProperty('--tiltX', '0deg');
+            this.style.setProperty('--tiltY', '0deg');
+        }
+        
+        tiltElements.forEach(element => {
+            element.addEventListener('mousemove', applyTilt);
+            element.addEventListener('mouseleave', resetTilt);
         });
 
         // Create Galaxy Background
@@ -692,6 +972,66 @@
                 galaxy.appendChild(planet);
             }
         }
+
+        // Testimonials Slider
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const prevTestimonial = document.getElementById('testimonialPrev');
+        const nextTestimonial = document.getElementById('testimonialNext');
+        let testimonialIndex = 0;
+        let testimonialTimer;
+        
+        function showTestimonial(newIndex) {
+            if (!testimonialCards.length) return;
+            
+            testimonialCards[testimonialIndex].classList.remove('active');
+            if (testimonialDots[testimonialIndex]) {
+                testimonialDots[testimonialIndex].classList.remove('active');
+            }
+            
+            testimonialIndex = (newIndex + testimonialCards.length) % testimonialCards.length;
+            
+            testimonialCards[testimonialIndex].classList.add('active');
+            if (testimonialDots[testimonialIndex]) {
+                testimonialDots[testimonialIndex].classList.add('active');
+            }
+        }
+        
+        function startTestimonialLoop() {
+            if (testimonialCards.length < 2) return;
+            testimonialTimer = setInterval(() => {
+                showTestimonial(testimonialIndex + 1);
+            }, 6000);
+        }
+        
+        function resetTestimonialLoop() {
+            if (testimonialCards.length < 2) return;
+            clearInterval(testimonialTimer);
+            startTestimonialLoop();
+        }
+        
+        if (prevTestimonial && nextTestimonial) {
+            prevTestimonial.addEventListener('click', () => {
+                showTestimonial(testimonialIndex - 1);
+                resetTestimonialLoop();
+            });
+            
+            nextTestimonial.addEventListener('click', () => {
+                showTestimonial(testimonialIndex + 1);
+                resetTestimonialLoop();
+            });
+        }
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.dataset.index, 10);
+                showTestimonial(index);
+                resetTestimonialLoop();
+            });
+        });
+        
+        showTestimonial(0);
+        startTestimonialLoop();
 
         // Easter Egg (Konami Code)
         const konamiCode = [
