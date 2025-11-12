@@ -207,28 +207,47 @@
       })();
 
       // Hero Typewriter Animation
-      const typewriterEl = document.getElementById('typewriter');
+      const typewriterElements = document.querySelectorAll('.typewriter');
+      const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-      if (typewriterEl) {
-          const phraseList = (typewriterEl.dataset.phrases || '')
+      const getNumberFromData = (value, fallback) => {
+          const parsed = parseInt(value, 10);
+          return Number.isFinite(parsed) ? parsed : fallback;
+      };
+
+      const initTypewriter = (element) => {
+          const { dataset } = element;
+          const phraseList = (dataset.phrases || '')
               .split('|')
               .map(phrase => phrase.trim())
               .filter(Boolean);
-          const phrases = phraseList.length ? phraseList : ['Exploring the world of technology with Muntakim Ahmed'];
+          const fallbackCopy = dataset.fallback || element.textContent.trim() || 'Exploring the world of technology with Muntakim Ahmed';
+          const phrases = phraseList.length ? phraseList : [fallbackCopy];
+          const typingSpeed = getNumberFromData(dataset.typingSpeed, 110);
+          const deletingSpeed = getNumberFromData(dataset.deletingSpeed, 60);
+          const pauseDuration = getNumberFromData(dataset.pauseDuration, 1500);
+          const shouldLoop = dataset.loop === 'true' || (dataset.loop !== 'false' && phrases.length > 1);
+
+          if (reduceMotionQuery.matches) {
+              element.textContent = phrases[0];
+              return;
+          }
+
           let phraseIndex = 0;
           let charIndex = 0;
           let deleting = false;
-          const typingSpeed = 110;
-          const deletingSpeed = 60;
-          const pauseDuration = 1500;
 
           const loopTypewriter = () => {
               const currentPhrase = phrases[phraseIndex];
-              typewriterEl.textContent = currentPhrase.slice(0, charIndex);
+              element.textContent = currentPhrase.slice(0, charIndex);
 
               let delay = deleting ? deletingSpeed : typingSpeed;
 
               if (!deleting && charIndex === currentPhrase.length) {
+                  if (!shouldLoop) {
+                      element.textContent = currentPhrase;
+                      return;
+                  }
                   deleting = true;
                   delay = pauseDuration;
               } else if (deleting && charIndex === 0) {
@@ -241,7 +260,18 @@
               setTimeout(loopTypewriter, Math.max(delay, 40));
           };
 
-          loopTypewriter();
+          const startDelay = getNumberFromData(dataset.delay, 0);
+          setTimeout(loopTypewriter, Math.max(startDelay, 0));
+      };
+
+      if (typewriterElements.length) {
+          const defaultStagger = 1200;
+          typewriterElements.forEach((element, index) => {
+              if (!element.dataset.delay) {
+                  element.dataset.delay = String(index * defaultStagger);
+              }
+              initTypewriter(element);
+          });
       }
 
       // Hero Stat Counters
