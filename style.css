@@ -346,6 +346,25 @@ header.hide {
             animation: fadeInDown 1s ease;
         }
 
+        .typewriter {
+            display: inline-flex;
+            min-height: 1.2em;
+            border-right: 3px solid var(--accent);
+            padding-right: 0.25rem;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blinkCaret 0.9s steps(1) infinite;
+        }
+
+        @keyframes blinkCaret {
+            0%, 100% {
+                border-color: transparent;
+            }
+            50% {
+                border-color: var(--accent);
+            }
+        }
+
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             color: var(--accent);
