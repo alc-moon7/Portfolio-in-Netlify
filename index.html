@@ -5,12 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOON | SPACEX</title>
      <link rel="icon" href="assets/logo.png" type="image/png">
+    <link rel="canonical" href="https://moonx.dev/">
     <meta name="description" content="Welcome to Moon' Space">
     <meta name="keywords" content="portfolio, web developer, HTML, CSS, JavaScript, Moonx, Moon Portfolio, Muntakim Ahmed, Moon Ahmed">
     <meta name="author" content="MOON Developer">
-    <a href="sorry.html"></a>
-    <a href="taandob.html"></a>
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MOON | SPACEX">
+    <meta property="og:description" content="Explore Moon's cosmic-themed developer portfolio by Muntakim Ahmed.">
+    <meta property="og:url" content="https://moonx.dev/">
+    <meta property="og:image" content="https://moonx.dev/assets/logo.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MOON | SPACEX">
+    <meta name="twitter:description" content="Explore Moon's cosmic-themed developer portfolio by Muntakim Ahmed.">
+    <meta name="twitter:image" content="https://moonx.dev/assets/logo.png">
+    <link rel="prefetch" href="sorry.html" as="document">
+    <link rel="prefetch" href="taandob.html" as="document">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "MOON | SPACEX",
+        "url": "https://moonx.dev/",
+        "description": "Cosmic-themed developer portfolio showcasing the work of Muntakim Ahmed.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://moonx.dev/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "creator": {
+            "@type": "Person",
+            "name": "Muntakim Ahmed"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Loading Screen -->
@@ -73,6 +102,127 @@
 
     <!-- Main Content -->
     <main>
+        <!-- Mission Photo Carousel -->
+        <section id="photoCarousel" class="photo-carousel section-hidden" aria-label="Mission photo slideshow">
+            <div class="carousel-shell">
+                <button
+                    class="carousel-arrow"
+                    type="button"
+                    data-carousel-nav="prev"
+                    aria-label="Show previous photo"
+                >
+                    <span aria-hidden="true">&#10094;</span>
+                </button>
+                <div
+                    class="carousel-window"
+                    role="region"
+                    aria-roledescription="carousel"
+                    aria-label="Portfolio highlight photos"
+                    aria-live="polite"
+                >
+                    <div class="photo-slide active" aria-hidden="false">
+                        <img src="assets/ps1.jpg" alt="Portfolio highlight photo 1" loading="lazy"/>
+                    </div>
+                    <div class="photo-slide" aria-hidden="true">
+                        <img src="assets/ps2.jpg" alt="Portfolio highlight photo 2" loading="lazy"/>
+                    </div>
+                    <div class="photo-slide" aria-hidden="true">
+                        <img src="assets/ps3.jpg" alt="Portfolio highlight photo 3" loading="lazy"/>
+                    </div>
+                    <div class="photo-slide" aria-hidden="true">
+                        <img src="assets/ps4.jpg" alt="Portfolio highlight photo 4" loading="lazy"/>
+                    </div>
+                    <div class="photo-slide" aria-hidden="true">
+                        <img src="assets/ps5.jpg" alt="Portfolio highlight photo 5" loading="lazy"/>
+                    </div>
+                </div>
+                <button
+                    class="carousel-arrow"
+                    type="button"
+                    data-carousel-nav="next"
+                    aria-label="Show next photo"
+                >
+                    <span aria-hidden="true">&#10095;</span>
+                </button>
+                <div class="carousel-dots" role="tablist" aria-label="Photo carousel navigation">
+                    <button
+                        type="button"
+                        class="carousel-dot active"
+                        data-carousel-dot="0"
+                        aria-label="Go to slide 1"
+                        aria-pressed="true"
+                        aria-current="true"
+                    ></button>
+                    <button
+                        type="button"
+                        class="carousel-dot"
+                        data-carousel-dot="1"
+                        aria-label="Go to slide 2"
+                        aria-pressed="false"
+                    ></button>
+                    <button
+                        type="button"
+                        class="carousel-dot"
+                        data-carousel-dot="2"
+                        aria-label="Go to slide 3"
+                        aria-pressed="false"
+                    ></button>
+                    <button
+                        type="button"
+                        class="carousel-dot"
+                        data-carousel-dot="3"
+                        aria-label="Go to slide 4"
+                        aria-pressed="false"
+                    ></button>
+                    <button
+                        type="button"
+                        class="carousel-dot"
+                        data-carousel-dot="4"
+                        aria-label="Go to slide 5"
+                        aria-pressed="false"
+                    ></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spotlight Slider -->
+        <section id="spotlight" class="spotlight section-hidden" aria-label="Recent highlights">
+            <div class="spotlight-header">
+                <p class="eyebrow">Latest Highlights</p>
+                <h2>Moments that inspire my mission</h2>
+            </div>
+            <div class="highlight-slider">
+                <button class="highlight-nav highlight-prev" aria-label="Previous highlight">
+                    &#10094;
+                </button>
+                <div class="highlight-viewport">
+                    <div class="highlight-track">
+                        <div class="highlight-slide active">
+                            <img src="assets/FB_IMG_1762954575600.jpg" alt="Team receiving University Innovation Program award with a ceremonial cheque">
+                        </div>
+                        <div class="highlight-slide">
+                            <img src="assets/FB_IMG_1762954555547.jpg" alt="Muntakim Ahmed smiling with a young fan while traveling">
+                        </div>
+                        <div class="highlight-slide">
+                            <img src="assets/FB_IMG_1762954489603.jpg" alt="Winning team posing with cheque at University Innovation Hub">
+                        </div>
+                        <div class="highlight-slide">
+                            <img src="assets/FB_IMG_1762954537114.jpg" alt="AgentX prize giving ceremony at Varendra University">
+                        </div>
+                    </div>
+                </div>
+                <button class="highlight-nav highlight-next" aria-label="Next highlight">
+                    &#10095;
+                </button>
+                <div class="highlight-dots" role="tablist" aria-label="Highlight navigation dots">
+                    <button class="highlight-dot active" data-index="0" aria-label="Slide 1"></button>
+                    <button class="highlight-dot" data-index="1" aria-label="Slide 2"></button>
+                    <button class="highlight-dot" data-index="2" aria-label="Slide 3"></button>
+                    <button class="highlight-dot" data-index="3" aria-label="Slide 4"></button>
+                </div>
+            </div>
+        </section>
+
         <!-- Home Section -->
         <section id="home">
             <div class="hero-canvas" aria-hidden="true">
@@ -84,9 +234,15 @@
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span
-                        id="typewriter"
-                        class="typewriter"
+                        id="typewriterIntro"
+                        class="typewriter typewriter-main"
                         data-phrases="Hi..!| Welcome to| Moon's Space|Scroll down to get|Exciting info About Me!|"
+                        aria-live="polite"
+                    ></span>
+                    <span
+                        id="typewriterName"
+                        class="typewriter typewriter-name"
+                        data-phrases="Muntakim Ahmed"
                         aria-live="polite"
                     ></span>
                 </h1>
@@ -642,7 +798,7 @@
 
         <p class="copyright">
             © 2025 Muntakim Ahmed. All rights reserved.<br>
-            Last Updated on  27 September 2025
+            Last Updated on 13 Nov 2025
         </p>
     </div>
 </footer>
@@ -652,7 +808,7 @@
     <div class="easter-overlay" id="easterOverlay"></div>
     <div id="easter-egg">
         <h3>🚀 Secret Discovered!</h3>
-        <p>You've unlocked the cosmic easter egg! This portfolio was built with pure HTML, CSS, and JavaScript - no frameworks or libraries. Thanks for exploring!</p>
+        <p>You've unlocked the cosmic easter egg! Thanks for exploring!</p>
         <button class="close-easter" id="closeEaster">Close</button>
     </div>
 

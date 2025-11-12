@@ -323,6 +323,242 @@ header.hide {
             font-size: 1rem;
         }
 
+        /* Mission Photo Carousel */
+        .photo-carousel {
+            width: 100%;
+            padding: 6rem 1.5rem 1.5rem;
+            margin: 0 auto;
+        }
+
+        .photo-carousel .carousel-shell {
+            position: relative;
+            border-radius: 1.75rem;
+            overflow: hidden;
+            background: linear-gradient(150deg, rgba(15, 23, 42, 0.9), rgba(79, 70, 229, 0.25));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
+        }
+
+        [data-theme="light"] .photo-carousel .carousel-shell {
+            background: linear-gradient(150deg, rgba(248, 250, 255, 0.95), rgba(99, 102, 241, 0.12));
+            border-color: rgba(15, 23, 42, 0.12);
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.12);
+        }
+
+        .photo-carousel .carousel-window {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            min-height: 280px;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .photo-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.9s ease, visibility 0.9s ease;
+        }
+
+        .photo-slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+        }
+
+        .photo-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-carousel .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3.25rem;
+            height: 3.25rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(15, 23, 42, 0.65);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+        }
+
+        [data-theme="light"] .photo-carousel .carousel-arrow {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            border-color: rgba(15, 23, 42, 0.15);
+        }
+
+        .photo-carousel .carousel-arrow[data-carousel-nav="prev"] {
+            left: 1.25rem;
+        }
+
+        .photo-carousel .carousel-arrow[data-carousel-nav="next"] {
+            right: 1.25rem;
+        }
+
+        .photo-carousel .carousel-arrow:hover,
+        .photo-carousel .carousel-arrow:focus-visible {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .photo-carousel .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.5rem 1rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .photo-carousel .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: width 0.3s ease, background 0.3s ease;
+        }
+
+        [data-theme="light"] .photo-carousel .carousel-dot {
+            background: rgba(15, 23, 42, 0.15);
+        }
+
+        .photo-carousel .carousel-dot.active {
+            width: 36px;
+            background: var(--accent);
+        }
+
+        .photo-carousel .carousel-dot:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        /* Spotlight Slider */
+        .spotlight {
+            min-height: auto;
+            padding: 6rem 2rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .spotlight-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .spotlight-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-top: 0.5rem;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .highlight-slider {
+            position: relative;
+            width: 100%;
+        }
+
+        .highlight-viewport {
+            overflow: hidden;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+            background: rgba(15, 23, 42, 0.35);
+            aspect-ratio: 16 / 9;
+        }
+
+        .highlight-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+        }
+
+        .highlight-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .highlight-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .highlight-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .highlight-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .highlight-prev {
+            left: 1rem;
+        }
+
+        .highlight-next {
+            right: 1rem;
+        }
+
+        .highlight-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .highlight-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .highlight-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
         /* Home Section */
         #home {
             position: relative;
@@ -347,13 +583,25 @@ header.hide {
         }
 
         .typewriter {
-            display: inline-flex;
+            display: inline-block;
             min-height: 1.2em;
-            border-right: 3px solid var(--accent);
+            border-right: 2px solid var(--accent);
             padding-right: 0.25rem;
             white-space: nowrap;
             overflow: hidden;
+            color: var(--text-primary);
             animation: blinkCaret 0.9s steps(1) infinite;
+        }
+
+        .typewriter-main {
+            display: block;
+        }
+
+        .typewriter-name {
+            display: block;
+            margin-top: 0.35rem;
+            color: var(--accent);
+            font-size: clamp(1.5rem, 3vw, 3rem);
         }
 
         @keyframes blinkCaret {
@@ -1225,6 +1473,18 @@ header.hide {
                 min-height: auto;
                 padding: 6rem 1.5rem 3rem;
             }
+
+            .photo-carousel {
+                padding: 5rem 1.25rem 1.5rem;
+            }
+
+            .photo-carousel .carousel-window {
+                aspect-ratio: 4 / 3;
+            }
+
+            .spotlight {
+                padding: 5rem 1.5rem 2rem;
+            }
             
             #home {
                 flex-direction: column;
@@ -1271,6 +1531,41 @@ header.hide {
         @media (max-width: 768px) {
             section {
                 padding: 5.5rem 1.25rem 3rem;
+            }
+
+            .photo-carousel {
+                padding: 4.5rem 1rem 1rem;
+            }
+
+            .photo-carousel .carousel-shell {
+                border-radius: 1.25rem;
+            }
+
+            .photo-carousel .carousel-window {
+                min-height: 240px;
+            }
+
+            .photo-carousel .carousel-arrow {
+                top: auto;
+                bottom: 1.25rem;
+                width: 2.75rem;
+                height: 2.75rem;
+                transform: none;
+            }
+
+            .photo-carousel .carousel-arrow:hover,
+            .photo-carousel .carousel-arrow:focus-visible {
+                transform: none;
+            }
+
+            .highlight-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+
+            .highlight-viewport {
+                border-radius: 20px;
             }
             
             #home {
@@ -1353,6 +1648,23 @@ header.hide {
             section {
                 padding: 5rem 1rem 3rem;
             }
+
+            .photo-carousel {
+                padding: 4rem 1rem 1rem;
+            }
+
+            .photo-carousel .carousel-window {
+                aspect-ratio: 4 / 5;
+                min-height: 220px;
+            }
+
+            .photo-carousel .carousel-dots {
+                padding-bottom: 1.5rem;
+            }
+
+            .spotlight {
+                padding: 4rem 1rem 1.5rem;
+            }
             
             #skills, #contact {
                 padding: 7rem 1rem 4rem;
@@ -1393,7 +1705,7 @@ header.hide {
             .hero-canvas {
                 display: none;
             }
-            
+
             .testimonials-wrapper {
                 gap: 1rem;
             }
@@ -1415,6 +1727,12 @@ header.hide {
             .btn {
                 width: 100%;
                 padding: 0.75rem 1.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .photo-slide {
+                transition: none;
             }
         }
 

@@ -102,6 +102,110 @@
           skillObserver.observe(bar);
       });
 
+      // Mission Photo Carousel
+      (function initPhotoCarousel() {
+          const carousel = document.getElementById('photoCarousel');
+          if (!carousel) return;
+
+          const slides = Array.from(carousel.querySelectorAll('.photo-slide'));
+          if (!slides.length) return;
+
+          const dots = Array.from(carousel.querySelectorAll('[data-carousel-dot]'));
+          const prevControl = carousel.querySelector('[data-carousel-nav="prev"]');
+          const nextControl = carousel.querySelector('[data-carousel-nav="next"]');
+          const autoplayDelay = 3000;
+          const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
+          let activeIndex = 0;
+          let autoplayId = null;
+
+          const setActiveSlide = (index) => {
+              slides.forEach((slide, idx) => {
+                  const isActive = idx === index;
+                  slide.classList.toggle('active', isActive);
+                  slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+              });
+
+              dots.forEach((dot, idx) => {
+                  const isActive = idx === index;
+                  dot.classList.toggle('active', isActive);
+                  dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                  if (isActive) {
+                      dot.setAttribute('aria-current', 'true');
+                  } else {
+                      dot.removeAttribute('aria-current');
+                  }
+              });
+
+              activeIndex = index;
+          };
+
+          const goToSlide = (nextIndex) => {
+              const normalizedIndex = (nextIndex + slides.length) % slides.length;
+              setActiveSlide(normalizedIndex);
+          };
+
+          const stopAutoplay = () => {
+              if (autoplayId) {
+                  clearInterval(autoplayId);
+                  autoplayId = null;
+              }
+          };
+
+          const startAutoplay = () => {
+              if (slides.length < 2 || motionQuery.matches) {
+                  stopAutoplay();
+                  return;
+              }
+
+              stopAutoplay();
+              autoplayId = setInterval(() => {
+                  goToSlide(activeIndex + 1);
+              }, autoplayDelay);
+          };
+
+          if (prevControl) {
+              prevControl.addEventListener('click', () => {
+                  goToSlide(activeIndex - 1);
+                  startAutoplay();
+              });
+          }
+
+          if (nextControl) {
+              nextControl.addEventListener('click', () => {
+                  goToSlide(activeIndex + 1);
+                  startAutoplay();
+              });
+          }
+
+          dots.forEach((dot, idx) => {
+              dot.addEventListener('click', () => {
+                  if (idx === activeIndex) return;
+                  goToSlide(idx);
+                  startAutoplay();
+              });
+          });
+
+          carousel.addEventListener('mouseenter', stopAutoplay);
+          carousel.addEventListener('mouseleave', startAutoplay);
+
+          document.addEventListener('visibilitychange', () => {
+              if (document.hidden) {
+                  stopAutoplay();
+              } else {
+                  startAutoplay();
+              }
+          });
+
+          if (typeof motionQuery.addEventListener === 'function') {
+              motionQuery.addEventListener('change', startAutoplay);
+          } else if (typeof motionQuery.addListener === 'function') {
+              motionQuery.addListener(startAutoplay);
+          }
+
+          setActiveSlide(0);
+          startAutoplay();
+      })();
+
       // Hero Typewriter Animation
       const typewriterEl = document.getElementById('typewriter');
 
