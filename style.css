@@ -11,6 +11,7 @@
             --light-card-bg: #ffffff;
             --light-card-shadow: rgba(0, 0, 0, 0.1);
             --light-border: #e2e8f0;
+            --light-bg-secondary-rgb: 255, 255, 255;
             
             /* Dark Theme */
             --dark-bg-primary: #0f172a;
@@ -22,10 +23,12 @@
             --dark-card-bg: rgba(30, 41, 59, 0.8);
             --dark-card-shadow: rgba(0, 0, 0, 0.3);
             --dark-border: #334155;
+            --dark-bg-secondary-rgb: 30, 41, 59;
             
             /* Global Variables */
             --bg-primary: var(--light-bg-primary);
             --bg-secondary: var(--light-bg-secondary);
+            --bg-secondary-rgb: var(--light-bg-secondary-rgb);
             --text-primary: var(--light-text-primary);
             --text-secondary: var(--light-text-secondary);
             --accent: var(--light-accent);
@@ -52,6 +55,7 @@
             --card-bg: var(--dark-card-bg);
             --card-shadow: var(--dark-card-shadow);
             --border: var(--dark-border);
+            --bg-secondary-rgb: var(--dark-bg-secondary-rgb);
         }
 
         /* Base Styles */
@@ -1836,3 +1840,87 @@ header.hide {
             opacity: 1;
             transform: translateY(0);
         }
+
+/* Next-level polish */
+.logo-wordmark {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.about-focus {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.9rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+}
+
+.about-focus li {
+    padding: 1rem 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    font-size: 0.95rem;
+}
+
+.project-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.85rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.project-metrics div {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(var(--bg-secondary-rgb), 0.16);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+.metric-value {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.contact-subtitle {
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+}
+
+.contact-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+.contact-item a {
+    color: var(--text-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .about-focus {
+        grid-template-columns: 1fr;
+    }
+}
