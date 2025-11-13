@@ -330,8 +330,9 @@ header.hide {
         /* Mission Photo Carousel */
         .photo-carousel {
             width: 100%;
-            padding: 6rem 1.5rem 1.5rem;
+            padding: 6rem 1.5rem 0;
             margin: 0 auto;
+            min-height: auto;
         }
 
         .photo-carousel .carousel-shell {
@@ -536,7 +537,9 @@ header.hide {
             display: flex;
             align-items: center;
             text-align: center;
-            padding-top: 12rem;
+            justify-content: flex-start;
+            padding-top: 0;
+            scroll-margin-top: 6rem;
         }
 
         .hero-content {
@@ -1459,7 +1462,7 @@ header.hide {
             
             #home {
                 flex-direction: column;
-                padding-top: 10rem;
+                padding-top: 0;
             }
             
             .hero-content {
@@ -1530,7 +1533,7 @@ header.hide {
             }
 
             #home {
-                padding-top: 8rem;
+                padding-top: 0;
             }
             
             .menu-toggle {
