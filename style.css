@@ -1299,6 +1299,27 @@ body[data-panel-open="true"] {
     .panel-close-fab span {
         display: none;
     }
+    
+    /* Show only the active card on very small screens */
+    .panel > .panel-header,
+    .panel .panel-instructions,
+    .panel .carousel-dots {
+        display: none;
+    }
+
+    .panel .card-carousel {
+        min-height: calc(100vh - 4rem);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .panel .card-strip {
+        padding: 0;
+        margin-inline: auto;
+        width: min(360px, 92vw);
+        grid-auto-columns: minmax(260px, 92vw);
+        gap: 0;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
