@@ -1199,13 +1199,7 @@ body[data-panel-open="true"] {
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    .panel > .panel-header,
-    .panel .panel-instructions,
-    .panel .carousel-dots {
-        display: none;
-    }
-
+@media (min-width: 769px) {
     .panel .card-carousel {
         min-height: calc(100vh - 4rem);
         align-items: center;
@@ -1215,13 +1209,10 @@ body[data-panel-open="true"] {
     .panel .card-strip {
         padding: 0;
         margin-inline: auto;
-        width: min(520px, 80vw);
-        grid-auto-columns: minmax(320px, min(520px, 80vw));
+        width: min(540px, 75vw);
+        max-width: 540px;
+        grid-auto-columns: minmax(340px, min(540px, 75vw));
         gap: 0;
-    }
-
-    .carousel-arrow {
-        display: none;
     }
 }
 
@@ -1326,13 +1317,6 @@ body[data-panel-open="true"] {
         display: none;
     }
     
-    /* Show only the active card on very small screens */
-    .panel > .panel-header,
-    .panel .panel-instructions,
-    .panel .carousel-dots {
-        display: none;
-    }
-
     .panel .card-carousel {
         min-height: calc(100vh - 4rem);
         align-items: center;
