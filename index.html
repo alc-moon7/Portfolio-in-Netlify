@@ -40,7 +40,8 @@
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="shortcut icon" href="images/apple-touch-icon-precomposed.png">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700|Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
-<link href="../maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="igneous/css/qtip.min.css" rel="stylesheet" type="text/css">
 <link href="igneous/css/animate.min.css" rel="stylesheet" type="text/css">
 <link href="igneous/css/addtohomescreen.min.css" rel="stylesheet" type="text/css">
@@ -337,6 +338,248 @@ opacity: 0.87;
 }
 </style>
 <link href="igneous/css/styles.min56b8.css?cache=1763547684" rel="stylesheet" type="text/css">
+<style>
+/* Hero intro text styling overrides for a bolder, cleaner look */
+#intro,
+#intro-overlay {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	position: fixed;
+	top: 40%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	pointer-events: none;
+	transform: translateZ(0);
+	z-index: 5000;
+}
+#intro {
+	opacity: 0; /* hide original inside parallax stack */
+	z-index: 0;
+}
+#intro-overlay {
+	z-index: 999999;
+	opacity: 0;
+	transition: opacity 0.8s ease;
+}
+#intro-overlay.show {
+	opacity: 1;
+}
+#intro-overlay.show .name {
+	animation: introLift 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards, introGlow 1.4s ease-out forwards;
+}
+#intro-overlay.show .title {
+	animation: introLift 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards, introGlow 1.4s ease-out 0.1s forwards;
+}
+#intro-overlay.show .name::after {
+	animation: introSheen 1.05s ease-out 0.15s forwards;
+}
+#intro-overlay.show .title::after {
+	animation: introSheen 1.05s ease-out 0.35s forwards;
+}
+@keyframes introGlow {
+	0% {
+		text-shadow: 0 12px 28px rgba(0,0,0,0.35), 0 0 0 rgba(255,255,255,0);
+		letter-spacing: 10px;
+	}
+	45% {
+		text-shadow: 0 18px 36px rgba(0,0,0,0.45), 0 0 20px rgba(255,255,255,0.35);
+		letter-spacing: 6px;
+	}
+	100% {
+		text-shadow: 0 8px 22px rgba(0,0,0,0.25), 0 0 0 rgba(255,255,255,0);
+		letter-spacing: 7px;
+	}
+}
+@keyframes introSheen {
+	0% {
+		opacity: 0;
+		transform: skewX(-18deg) translateX(-120%);
+	}
+	35% {
+		opacity: 0.85;
+	}
+	100% {
+		opacity: 0;
+		transform: skewX(-18deg) translateX(140%);
+	}
+}
+@keyframes introLift {
+	0% {
+		transform: translateY(18px) scale(0.92);
+		filter: blur(8px);
+		opacity: 0;
+	}
+	55% {
+		transform: translateY(-6px) scale(1.05);
+		filter: blur(1px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(0) scale(1);
+		filter: blur(0);
+		opacity: 1;
+	}
+}
+#intro #name,
+#intro-overlay .name {
+	color: #0b0b0b;
+	font-family: 'Montserrat', 'Space Grotesk', 'Open Sans', sans-serif;
+	font-weight: 800;
+	font-size: 32px;
+	letter-spacing: 7px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: auto;
+	min-width: 260px;
+	padding: 14px 22px;
+	background: transparent;
+	border-radius: 14px;
+	border: none;
+	box-shadow: none;
+	text-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+	opacity: 0;
+	transform: translateY(18px) scale(0.96);
+	filter: blur(6px);
+}
+#intro #title,
+#intro-overlay .title {
+	color: #101010;
+	font-family: 'Space Grotesk', 'Montserrat', 'Open Sans', sans-serif;
+	font-weight: 700;
+	letter-spacing: 10px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: auto;
+	padding: 10px 18px 8px;
+	background: transparent;
+	border-radius: 10px;
+	border: none;
+	box-shadow: none;
+	text-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+	text-transform: uppercase;
+	opacity: 0;
+	transform: translateY(18px) scale(0.96);
+	filter: blur(6px);
+}
+#intro-overlay .name::after,
+#intro-overlay .title::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -120%;
+	width: 120%;
+	height: 100%;
+	background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0) 90%);
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Soften section reveal timing */
+body.preload-tiles section.largeTile {
+	opacity: 0.5;
+	transform: translateY(8px);
+	filter: blur(2px);
+	transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+}
+body.tiles-ready section.largeTile {
+	opacity: 1;
+	transform: translateY(0);
+	filter: blur(0);
+}
+
+/* Hide hero intro when sections are open */
+.intro-hidden #intro-overlay {
+	display: none !important;
+	pointer-events: none !important;
+}
+
+/* Nav loader overlay */
+#nav-loader {
+	position: fixed;
+	top: 14px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	justify-content: center;
+	z-index: 200000;
+	pointer-events: none;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#nav-loader .dot {
+	width: 8px;
+	height: 8px;
+	background: #ffffff;
+	border-radius: 50%;
+	opacity: 0.7;
+	animation: navDot 1s infinite ease-in-out;
+}
+#nav-loader .dot:nth-child(2) { animation-delay: 0.12s; }
+#nav-loader .dot:nth-child(3) { animation-delay: 0.24s; }
+@keyframes navDot {
+	0%, 80%, 100% { transform: scale(0); }
+	40% { transform: scale(1); }
+}
+body.nav-ready #nav-loader {
+	opacity: 0;
+	visibility: hidden;
+}
+
+/* Nav reveal with delayed animation */
+nav {
+	opacity: 1 !important;
+	transform: none !important;
+	pointer-events: auto !important;
+	transition: none !important;
+	z-index: 200000 !important;
+}
+nav a {
+	opacity: 1 !important;
+	transform: none !important;
+	pointer-events: auto !important;
+}
+
+/* Footer logo boost */
+footer {
+	height: 70px;
+}
+#footer {
+	width: 190px;
+	height: 70px;
+	transform: scale(1.05);
+	transform-origin: center bottom;
+}
+#footerFirst img,
+#footerLast img {
+	object-fit: contain;
+}
+#footerRocket {
+	background-size: 50%;
+	background-position: 60% 50%;
+	transform: translate(18px, -2px) scale(0.7);
+}
+@media only screen and (max-width: 480px) {
+	footer {
+		height: 62px;
+	}
+	#footer {
+		width: 160px;
+		height: 62px;
+		transform: scale(1);
+	}
+	#footerRocket {
+		background-size: 48%;
+		background-position: 57% 50%;
+		transform: translate(12px, -2px) scale(0.68);
+	}
+}
+</style>
 <script>
 var supported = true;
 var mobile = false;
@@ -358,6 +601,7 @@ var effects = false;
   <h2>Creative Technologist</h2>
 </header>
 <nav> <a href="#About"><span data-hover="Bio">About</span></a> <a href="#Expertise"><span data-hover="Skills">Expertise</span></a> <a href="#Experience"><span data-hover="Jobs">Experience</span></a> <a href="#Projects"><span data-hover="Work">Projects</span></a> <a href="#Help"><span data-hover="Help"><i class="fa fa-question-circle navSpace"></i></span></a> </nav>
+<div id="nav-loader"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 <section id="About" class="largeTile">
   <div class="container">
     <article class="mainIcon" id="Shiblee">
@@ -1174,6 +1418,10 @@ var effects = false;
     </div>
   </li>
 </ul>
+<div id="intro-overlay">
+  <div class="name">Muntakim Ahmed Moon</div>
+  <div class="title">Creative Technologist</div>
+</div>
 <div id="vignette" class="fullscreen animated"></div>
 <div id="curtain" class="fullscreen"></div>
 <div id="loading">
@@ -1279,5 +1527,52 @@ var effects = false;
 <script src="igneous/js/addtohomescreen.min.js"></script> 
 <script src="igneous/js/spritespin.min.js"></script> 
 <script src="igneous/js/script.min56b8.js?cache=1763547684"></script>
+<script>
+// Delay intro text reveal to avoid flashing before animations start
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    var intro = document.getElementById('intro-overlay');
+    if (intro) intro.classList.add('show');
+  }, 600);
+});
+// Speed up night-to-day reveal by removing dim overlays quickly
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    ['layer5', 'layer4', 'layer3', 'layer2', 'layer1'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.remove('dim');
+    });
+    var vig = document.getElementById('vignette');
+    if (vig) vig.classList.add('fadeOut');
+    var cur = document.getElementById('curtain');
+    if (cur) cur.classList.add('fadeOut');
+  }, 250);
+});
+// Sync tiles with hero animation
+window.addEventListener('DOMContentLoaded', function () {
+  document.body.classList.add('preload-tiles');
+});
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    document.body.classList.remove('preload-tiles');
+    document.body.classList.add('tiles-ready');
+  }, 300);
+});
+// Toggle intro visibility when a section is selected
+window.addEventListener('DOMContentLoaded', function () {
+  const introToggle = () => {
+    const hasSelected = document.querySelector('section.selected');
+    document.body.classList.toggle('intro-hidden', !!hasSelected);
+  };
+  const observer = new MutationObserver(introToggle);
+  observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+  introToggle();
+});
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    document.body.classList.add('nav-ready');
+  }, 6000);
+});
+</script>
 </body>
 </html>
