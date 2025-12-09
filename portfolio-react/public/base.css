@@ -288,3 +288,116 @@ opacity: 0.87;
 #title {
 	font-weight: 800;
 }
+.academic-card .centerIcon {
+	width: 120px;
+	height: 120px;
+	border-radius: 8px;
+	border: 3px solid #e0e0e0;
+	box-shadow: 0 4px 12px rgba(0,0,0,.18);
+	overflow: hidden;
+	margin-top: 10px;
+}
+.academic-card .textContent {
+	text-align: center;
+	margin: 15px 18px 8px;
+	padding-bottom: 10px;
+}
+.academic-card .textContent h2 {
+	margin-bottom: 8px;
+}
+.academic-card .details {
+	list-style: none;
+	padding: 0;
+	margin: 12px 0 0;
+	font-size: 13px;
+	line-height: 1.45;
+}
+.academic-card .details li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 2px;
+	border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.academic-card .details li:last-child {
+	border-bottom: 0;
+}
+.academic-card .details .label {
+	color: #777;
+	font-weight: 600;
+	font-size: 13px;
+	text-transform: none;
+	flex: 0 0 44%;
+	text-align: left;
+}
+.academic-card .details .value {
+	color: #2b2b2b;
+	font-weight: 600;
+	text-align: right;
+	flex: 1;
+}
+.connect-card .contact-list {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0 0;
+	font-size: 13px;
+	line-height: 1.5;
+}
+.connect-card .contact-list li {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0;
+	padding: 1px 2px;
+}
+.connect-card .contact-list .label {
+	color: #777;
+	font-weight: 600;
+	text-align: left;
+}
+.connect-card .contact-list .value {
+	color: #2b2b2b;
+	font-weight: 600;
+	text-align: left;
+	white-space: normal;
+	line-height: 1.45;
+	display: block;
+	width: 100%;
+}
+.connect-card .connect-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 18px;
+	align-items: start;
+}
+.connect-card .leftCol h3,
+.connect-card .rightCol h3 {
+	text-align: left;
+	margin-bottom: 6px;
+}
+.connect-card .social-list {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0 0;
+	font-size: 13px;
+	line-height: 1.5;
+}
+.connect-card .social-list li {
+	margin: 6px 0;
+	padding: 0;
+}
+.connect-card .social-list li:before {
+	display: none;
+}
+.connect-card .social-list li a {
+	font-weight: 600;
+	color: #2b2b2b;
+	text-align: left;
+}
+#Shiblee .textContent p {
+	text-align: justify;
+	line-height: 1.5;
+	margin: 12px auto 0;
+	max-width: 90%;
+	font-size: 14px;
+}
