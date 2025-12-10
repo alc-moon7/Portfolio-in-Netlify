@@ -2,3 +2,4 @@ var HI_RES=!!((window.devicePixelRatio>1&&screen.width>1300||screen.width>2e3)&&
 
 
 
+
