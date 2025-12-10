@@ -18,7 +18,7 @@ const scriptSources = [
   '/igneous/js/fittext.min.js',
   '/igneous/js/addtohomescreen.min.js',
   '/igneous/js/spritespin.min.js',
-  '/igneous/js/script.min56b8.js?v=fast3',
+  '/igneous/js/script.min56b8.js?v=fast2',
 ]
 
 const loadScript = (src) =>
